@@ -19,7 +19,7 @@ var Flickable = function(elementSelector, options) {
             nextButtonText: 'Next',
             prevButtonText: 'Previous',
             orientationEvent: 'orientationchange',
-            timeInterval: 0
+            timeInterval: 0,
             widthCallback: null
         },
         orientationTimeout;

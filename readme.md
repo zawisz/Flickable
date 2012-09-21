@@ -50,5 +50,6 @@ Settings reference
 - `callback`: A function to be called each time the slide changes. The function will be passed the slide number (zero-indexed) as a parameter
 - `orientationEvent`: Window event which should determine when to change images width. **Default:** `'orientationchange'`
 - `timeInterval`: gallery auto-rotation time in seconds. **Default:** `0`.
+- `widthCallback`: A function to be called each time the orientation changes. The function should return new images width.
 
 _Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php_

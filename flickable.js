@@ -42,9 +42,9 @@ var Flickable = function(elementSelector, options) {
     // 'onorientationchange' could be disabled by passing 'resize' option. 
     // Default option is 'orientationchange' if supported by browser.
     var orientationEvent;
-    if(settings.orientationEvent === 'orientationchange'
-        && 'onorientationchange' in window) {
-            orientationEvent = 'orientationchange';
+    if (settings.orientationEvent === 'orientationchange'
+            && 'onorientationchange' in window) {
+        orientationEvent = 'orientationchange';
     } else {
         orientationEvent = 'resize';
     }
@@ -53,20 +53,20 @@ var Flickable = function(elementSelector, options) {
         settings.width = settings.itemWidth;
     }
 
-    if(settings.widthCallback === null) {
-        var getWidth = function() {
+    if (settings.widthCallback === null) {
+        var getWidth = function () {
             return window.innerWidth;
-        }
+        };
     } else {
         var getWidth = settings.widthCallback;
     }
 
-    if (settings.width == 'screen') {
+    if (settings.width === 'screen') {
         settings.widthScreen = true;
         settings.width = getWidth();
-        window.addEventListener(orientationEvent, function(e) {
+        window.addEventListener (orientationEvent, function(e) {
             clearTimeout(orientationTimeout);
-            orientationTimeout = setTimeout(function() {
+            orientationTimeout = setTimeout (function() {
                 settings.width = getWidth();
             }, 200);
         });

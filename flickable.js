@@ -22,7 +22,7 @@ var Flickable = function(elementSelector, options) {
             timeInterval: 0,
             widthCallback: function() {
                 return window.innerWidth;
-            },
+            }
         },
         orientationTimeout;
 

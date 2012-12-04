@@ -10,7 +10,7 @@ var Flickable = function(elementSelector, options) {
             offset: 0,
             enableMouseEvents: false,
             showIndicators: true,
-            showNumbers: false,			
+            showNumbers: false,
             showButtons: false,
             indicatorClass: 'flickableIndicatorDots',
             numberIndicatorClass: 'flickableIndicatorNumbers',
@@ -43,7 +43,7 @@ var Flickable = function(elementSelector, options) {
         }
     }
 
-    // 'onorientationchange' could be disabled by passing 'resize' option. 
+    // 'onorientationchange' could be disabled by passing 'resize' option.
     // Default option is 'orientationchange' if supported by browser.
     var orientationEvent;
     if (settings.orientationEvent === 'orientationchange'
@@ -58,7 +58,7 @@ var Flickable = function(elementSelector, options) {
     }
 
 
-    if (settings.width == 'screen') {
+    if (settings.width === 'screen') {
         settings.widthScreen = true;
         settings.width = settings.widthCallback();
         window.addEventListener(orientationEvent, function(e) {
@@ -157,7 +157,7 @@ var Flickable = function(elementSelector, options) {
                     for (var k = 0, l = indicators.length; k < l; k++) {
                         if (k !== currentSlide) {
                             indicators[k].removeAttribute('class');
-                            indicators[k].innerHTML = "";							
+                            indicators[k].innerHTML = "";
                         } else {
                             indicators[k].setAttribute('class', settings.activeIndicatorClass);
                             if (settings.showNumbers) {

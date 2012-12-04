@@ -20,9 +20,7 @@ var Flickable = function(elementSelector, options) {
             prevButtonText: 'Previous',
             orientationEvent: 'orientationchange',
             timeInterval: 0,
-            widthCallback: function() {
-                return window.innerWidth;
-            },
+            widthCallback: null
         },
         orientationTimeout;
 
@@ -55,14 +53,21 @@ var Flickable = function(elementSelector, options) {
         settings.width = settings.itemWidth;
     }
 
+    if(settings.widthCallback === null) {
+        var getWidth = function() {
+            return window.innerWidth;
+        }
+    } else {
+        var getWidth = settings.widthCallback;
+    }
 
     if (settings.width == 'screen') {
         settings.widthScreen = true;
-        settings.width = settings.widthCallback();
+        settings.width = getWidth();
         window.addEventListener(orientationEvent, function(e) {
             clearTimeout(orientationTimeout);
             orientationTimeout = setTimeout(function() {
-                settings.width = settings.widthCallback();
+                settings.width = getWidth();
             }, 200);
         });
     }
